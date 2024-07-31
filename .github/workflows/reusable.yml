@@ -5,11 +5,9 @@ on:
     inputs:
       artifact-name:
         description: The name of the deployabale artifact files
-        required: true
+        required: false
         default: dist
         type: string
-
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
