@@ -2,6 +2,7 @@ name: Matrix Demo
 on: push
 jobs: 
   build:
+    continue-on-error: true
     strategy:
       matrix:
          # It will run for all combinaions of the values: version 12, 14, and 16 on both Windows and Ubuntu
