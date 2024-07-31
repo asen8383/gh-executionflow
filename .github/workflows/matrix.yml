@@ -5,9 +5,16 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-         # It will run for all combinaions of the values: version 12, 14, and 16 on both Windows and Ubuntu
+         # It will run for all combinaions of the values: version 12, 14, and 16 on both Ubuntu and Windows
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest]
+        include:
+            # Additional SINGLE combination
+          - node-version: 18
+            operating-system: ubuntu-latest
+        exclude:
+            - node-version: 12
+              operation-system: windows-latest
 
     runs-on: ${{ matrix.operating-system }} # It will run for all combinaions of the values
     steps:
