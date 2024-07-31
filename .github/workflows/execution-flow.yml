@@ -76,8 +76,9 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
-  # Will run only if some other job failed
+  # Will run only if some other job in the lint or deploy chain failed
   report:
+    needs: [lint, deploy]
     if: failure()
     runs-on: ubuntu-latest
     steps:
